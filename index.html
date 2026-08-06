@@ -53,6 +53,13 @@
   .phase { margin: 14px 0 6px; }
   ul { margin: 6px 0 0 20px; }
   li { margin-bottom: 6px; }
+  dl.skills { display: grid; grid-template-columns: 150px 1fr; gap: 8px 20px; }
+  dl.skills dt { font-weight: 600; }
+  dl.skills dd { color: var(--fg); }
+  @media (max-width: 620px) {
+    dl.skills { grid-template-columns: 1fr; gap: 2px; }
+    dl.skills dd { margin-bottom: 10px; color: var(--muted); }
+  }
   a { color: inherit; }
   footer { margin-top: 48px; font-size: 13px; color: var(--muted); }
   @media print {
@@ -78,6 +85,20 @@
 </header>
 
 <div class="summary">Full-stack engineer specializing in DeFi and trading infrastructure. Smart contracts (Solidity, Foundry), backend services (TypeScript, Node), and real-time trading frontends.</div>
+
+<h2>Skills</h2>
+<dl class="skills">
+  <dt>Languages</dt>
+  <dd>TypeScript, Node, Solidity, Vyper, C, C++, SQL</dd>
+  <dt>Backend</dt>
+  <dd>Hono, Postgres/Drizzle, Redis, WebSocket infrastructure, REST API design, idempotency and reconciliation, monorepos (Turborepo), Railway</dd>
+  <dt>Smart contracts</dt>
+  <dd>Foundry (fork/invariant testing), ERC4626, oracle design, liquidation engines, proxy/upgradeable patterns, exploit response</dd>
+  <dt>Frontend</dt>
+  <dd>React, Next.js, React Compiler, Zustand, React Query, wagmi/viem, TradingView charting</dd>
+  <dt>Domains</dt>
+  <dd>Order execution, perp/spot market microstructure, margin and liquidation systems, lending protocols, flashloan liquidations, treasury operations and multisig</dd>
+</dl>
 
 <h2>Experience</h2>
 
@@ -119,14 +140,6 @@
 <h3>DSSD Inc. - Software Engineer (Contract)</h3>
 <ul>
 <li>Developed performance analysis scripts to optimize flash chip efficiency for a rack-scale NVMe storage architecture processing 10M+ IOPS.</li>
-</ul>
-
-<h2>Skills</h2>
-<ul>
-<li><b>Smart contracts</b>: Solidity, Vyper, Foundry (fork/invariant testing), ERC4626, oracle design, liquidation engines, exploit response</li>
-<li><b>Backend</b>: TypeScript, Node, Hono, Postgres/Drizzle, Redis, WebSocket infrastructure, viem/ethers, monorepos (Turborepo), Railway</li>
-<li><b>Frontend</b>: React, Next.js, React Compiler, Zustand, React Query, wagmi, TradingView charting</li>
-<li><b>Domains</b>: perp/spot market microstructure, margin systems, lending protocols, flashloan liquidations, treasury operations</li>
 </ul>
 
 <h2>Education</h2>
