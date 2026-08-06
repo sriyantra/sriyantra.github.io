@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>sriyantra - resume</title>
+<meta name="description" content="Full-stack engineer specializing in DeFi and trading infrastructure.">
+<style>
+  :root {
+    --bg: #ffffff;
+    --fg: #1a1a1a;
+    --muted: #555;
+    --rule: #d4d4d4;
+    --accent: #1a1a1a;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #101010;
+      --fg: #e8e8e8;
+      --muted: #9a9a9a;
+      --rule: #333;
+      --accent: #e8e8e8;
+    }
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--fg);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 48px 24px 96px; }
+  header { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap; }
+  h1 { font-size: 30px; letter-spacing: -0.2px; margin-bottom: 4px; }
+  .contact { font-size: 14px; color: var(--muted); margin-bottom: 16px; }
+  .contact a { color: var(--muted); }
+  .download {
+    display: inline-block; font-size: 13px; text-decoration: none;
+    color: var(--bg); background: var(--accent);
+    padding: 8px 14px; border-radius: 6px; white-space: nowrap;
+  }
+  .download:hover { opacity: 0.85; }
+  .summary { margin-bottom: 8px; }
+  h2 {
+    font-size: 12px; text-transform: uppercase; letter-spacing: 1.2px; color: var(--muted);
+    border-bottom: 1px solid var(--rule); padding-bottom: 6px; margin: 36px 0 14px;
+  }
+  h3 { font-size: 17px; margin-top: 20px; }
+  h3:first-of-type { margin-top: 0; }
+  .meta { font-size: 13.5px; color: var(--muted); margin-top: 2px; }
+  .phase { margin: 14px 0 6px; }
+  ul { margin: 6px 0 0 20px; }
+  li { margin-bottom: 6px; }
+  a { color: inherit; }
+  footer { margin-top: 48px; font-size: 13px; color: var(--muted); }
+  @media print {
+    .download, footer { display: none; }
+    .wrap { max-width: none; padding: 0; }
+    body { font-size: 10pt; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div>
+    <h1>sriyantra</h1>
+    <div class="contact">
+      <a href="https://github.com/sriyantra">github.com/sriyantra</a> &nbsp;|&nbsp;
+      sriyantra717@gmail.com &nbsp;|&nbsp;
+      <a href="https://t.me/sriyantra7">t.me/sriyantra7</a> &nbsp;|&nbsp; remote
+    </div>
+  </div>
+  <a class="download" href="resume-sriyantra.pdf">Download PDF</a>
+</header>
+
+<div class="summary">Full-stack engineer specializing in DeFi and trading infrastructure. Smart contracts (Solidity, Foundry), backend services (TypeScript, Node), and real-time trading frontends.</div>
+
+<h2>Experience</h2>
+
+<h3>Sentiment / Onyx - Senior Software Engineer</h3>
+<div class="meta">Mar 2024 - Present, remote. Lending protocol on HyperEVM that pivoted to Onyx, a trading terminal on Hyperliquid.</div>
+
+<div class="phase"><b>Onyx trading terminal (<a href="https://app.onyx.live">app.onyx.live</a>), 2025 - present</b> - primary author of the backend and co-lead contributor to the frontend of a live product handling real user funds.</div>
+<ul>
+<li>Built the terminal's margin layer, vault-funded leveraged positions: position lifecycle, invisible protocol stop-losses protecting the lending vault, cross-margin, share-based borrow accounting with interest accrual and bad-debt socialization, and server-side trailing stops. TypeScript, Hono, Postgres/Drizzle, Privy embedded wallets (42 tables, 600+ API routes, 13 deployed services).</li>
+<li>Built treasury operations end to end: a 2-of-3 cold-wallet multisig signing system over Hyperliquid actions, an automated weekly payout rail with idempotency and rate-limit pacing, an event-sourced vault accounting system, and the internal admin console.</li>
+<li>Built the points and rewards platform: genesis allocation with signature-verified claims and sybil filtering, automated epoch state machines, a points-burn auction, and a PnL leaderboard with prize settlement.</li>
+<li>Frontend order execution: client-side signing via per-user agent wallets across 15+ order types (market, limit, TP/SL, scalp, scale, TWAP, trailing stop) with atomic TP/SL batching and tick/lot/notional clamping. Next.js, React Compiler, wagmi/viem.</li>
+<li>Real-time market data and performance: custom WebSocket multiplexer, L2 snapshot+delta orderbook reconstruction (7x feed rate, 20 levels at ~1.8 updates/sec), per-animation-frame chart updates, first-frame panel paint.</li>
+<li>Shipped three market classes end to end (HIP-3 builder dexes with synthetic equities at up to 100x, spot, binary outcome markets), including a client-side liquidation-price engine spanning tiered margin tables and portfolio-margin accounts.</li>
+</ul>
+
+<div class="phase"><b>Sentiment v2 lending protocol (<a href="https://github.com/sentimentxyz/protocol-v2">github.com/sentimentxyz/protocol-v2</a>), 2024 - 2025</b> - Solidity engineer on an audited lending protocol on HyperEVM.</div>
+<ul>
+<li>Built oracle infrastructure (Hyperliquid-native oracles, Pyth and aggregator adapters, MetaOracle), onchain lens contracts, and manual liquidation execution.</li>
+<li>Sole author of a cross-layer collateralization system extending the protocol to hold Hyperliquid L1 assets (spot balances, perp margin) as collateral via read/write precompiles; productionized the design as an ERC4626 lending vault with a multicall bundler.</li>
+<li>Built and operated the protocol's production liquidation bots: an atomic flashloan liquidator with swap routing across 4 aggregators, and a 5-second-loop risk service computing position health and triggering settlement.</li>
+</ul>
+
+<h3>Independent - Open Source Smart Contract Development</h3>
+<div class="meta">2022 - 2024, remote.</div>
+<ul>
+<li>Reflex: a gas-optimized proxy framework for upgradeable modular smart contract systems (Solidity, Foundry).</li>
+<li>Light Protocol: a minimal ERC4626 lending primitive built for composable pool creation.</li>
+</ul>
+
+<h3>Rari Capital - Smart Contract Engineer</h3>
+<div class="meta">Jul 2021 - Sep 2022, remote. Core contributor to Fuse, permissionless lending pools that drove the protocol past $1B in TVL; merged into Tribe DAO Dec 2021.</div>
+<ul>
+<li>Core contracts on the cToken/Comptroller layer: rewards-plugin cToken delegates enabling yield-bearing collateral, and a vote-escrowed gauge emissions system (Solidity + Vyper) for directing incentives across pools.</li>
+<li>Cross-protocol integrations: ERC4626 yield-strategy wrappers for Alchemix, Sushi Masterchef, and Convex merged across three orgs; maintained the multichain price-oracle registry (Curve, Balancer V2 TWAP, Arbitrum) and created a Foundry fork-testing harness against live mainnet pools.</li>
+<li>Incident response to the $80M Fuse reentrancy exploit: same-day reentrancy fix, a protocol-wide global-pause circuit breaker, and post-exploit accounting remediation.</li>
+</ul>
+
+<h3>DSSD Inc. - Software Engineer (Contract)</h3>
+<ul>
+<li>Developed performance analysis scripts to optimize flash chip efficiency for a rack-scale NVMe storage architecture processing 10M+ IOPS.</li>
+</ul>
+
+<h2>Skills</h2>
+<ul>
+<li><b>Smart contracts</b>: Solidity, Vyper, Foundry (fork/invariant testing), ERC4626, oracle design, liquidation engines, exploit response</li>
+<li><b>Backend</b>: TypeScript, Node, Hono, Postgres/Drizzle, Redis, WebSocket infrastructure, viem/ethers, monorepos (Turborepo), Railway</li>
+<li><b>Frontend</b>: React, Next.js, React Compiler, Zustand, React Query, wagmi, TradingView charting</li>
+<li><b>Domains</b>: perp/spot market microstructure, margin systems, lending protocols, flashloan liquidations, treasury operations</li>
+</ul>
+
+<h2>Education</h2>
+<div><b>Stanford University</b> - Computer Science coursework (did not complete degree)</div>
+
+<footer>Prefer a file? <a href="resume-sriyantra.pdf">Download the PDF</a>.</footer>
+
+</div>
+</body>
+</html>
