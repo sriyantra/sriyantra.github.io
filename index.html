@@ -107,7 +107,7 @@
 
 <div class="phase"><b>Onyx trading terminal (<a href="https://app.onyx.live">app.onyx.live</a>), 2025 - Oct 2026</b> - primary author of the backend and co-lead contributor to the frontend of a live product handling real user funds.</div>
 <ul>
-<li>Built the terminal's margin layer, vault-funded leveraged positions: position lifecycle, invisible protocol stop-losses protecting the lending vault, cross-margin, share-based borrow accounting with interest accrual and bad-debt socialization, and server-side trailing stops. TypeScript, Hono, Postgres/Drizzle, Privy embedded wallets (42 tables, 600+ API routes, 13 deployed services).</li>
+<li>Built the terminal's margin layer, vault-funded leveraged positions: position lifecycle, invisible protocol stop-losses protecting the lending vault, cross-margin, share-based borrow accounting with interest accrual and bad-debt socialization, and server-side trailing stops. TypeScript, Hono, Postgres/Drizzle, Privy embedded wallets; one HTTP API plus separately deployed workers.</li>
 <li>Built treasury operations end to end: a 2-of-3 cold-wallet multisig signing system over Hyperliquid actions, an automated weekly payout rail with idempotency and rate-limit pacing, an event-sourced vault accounting system, and the internal admin console.</li>
 <li>Built the points and rewards platform: signature-verified claims, sybil filtering, epochs, a burn auction, and a PnL leaderboard.</li>
 <li>Frontend order execution: client-side signing via per-user agent wallets across 15+ order types (market, limit, TP/SL, scalp, scale, TWAP, trailing stop) with atomic TP/SL batching and tick/lot/notional clamping. Next.js, React Compiler, wagmi/viem.</li>
@@ -126,6 +126,7 @@
 <div class="meta">2022 - present, remote.</div>
 <ul>
 <li><a href="https://github.com/sriyantra/cross-venue-margin">github.com/sriyantra/cross-venue-margin</a> (Rust, Tokio, axum, Postgres), 2026: order books from two perp venues, a risk engine margining one account across both with BTC or ETH as collateral and netting of hedged positions, signed order execution on Hyperliquid testnet, and a replayable event log. Margin figures match Hyperliquid's own for 11 accounts.</li>
+<li><a href="https://github.com/sriyantra/event-quorum">github.com/sriyantra/event-quorum</a> (Rust, Tokio, BLS), 2026: nodes apply a venue fill or deposit to the cross-venue-margin engine only after more than two thirds of them have signed it. Tendermint consensus, aggregated BLS commits, and a deterministic fault-injection simulator.</li>
 <li>calltape (<a href="https://calltape.vercel.app">calltape.vercel.app</a>, 2026): production AI-agent pipeline that extracts trade calls from trading podcasts and newsletters via an LLM tool-runner agent, marks them against live Hyperliquid prices, and publishes per-source track records.</li>
 <li>mcp-guard (<a href="https://github.com/sriyantra/mcp-guard">github.com/sriyantra/mcp-guard</a>, 2026): policy enforcement for AI-agent tool calls: per-tool call/cost budgets, argument validation, approval gates, and a tamper-evident hash-chained audit log (TypeScript, zero deps).</li>
 <li>Reflex, a gas-optimized proxy framework for upgradeable modular contract systems, and Light Protocol, a minimal ERC4626 lending primitive for composable pool creation (Solidity, Foundry).</li>
